@@ -1,0 +1,14 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block body %}
+    <h1>Création de groupe</h1>
+
+    <p>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-success" value="Créer" />
+        {{ form_end(form) }}
+    </p>
+
+    <p><a href="{{ path('groups_index') }}" class="btn btn-default">Retour à la liste</a></p>
+{% endblock %}

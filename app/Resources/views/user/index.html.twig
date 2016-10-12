@@ -1,0 +1,43 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block body %}
+    <h1>Liste des utilisateurs</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Actif (Oui / Non)</th>
+                <th>Date de création</th>
+                <th>Groupe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('users_show', { 'id': user.id }) }}">{{ user.email }}</a></td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{% if user.actif %}Oui{% else %}Non{% endif %}</td>
+                <td>{% if user.dateCreation %}{{ user.dateCreation|date('d/m/Y') }}{% endif %}</td>
+                <td>{{ user.groupe.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('users_show', { 'id': user.id }) }}">Visualiser</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('users_edit', { 'id': user.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('users_new') }}" class="btn btn-default" >Créer un nouvel utilisateur</a></p>
+{% endblock %}

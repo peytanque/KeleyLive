@@ -1,0 +1,33 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block body %}
+    <h1>Liste des groupes</h1>
+
+    <table  class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupe in groupes %}
+            <tr>
+                <td><a href="{{ path('groups_show', { 'id': groupe.id }) }}">{{ groupe.nom }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('groups_show', { 'id': groupe.id }) }}">Visualiser</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('groups_edit', { 'id': groupe.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('groups_new') }}" class="btn btn-default">Créer un nouveau groupe</a></p>
+{% endblock %}

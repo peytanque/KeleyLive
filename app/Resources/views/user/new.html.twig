@@ -1,0 +1,15 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block body %} 
+
+    <h1>Création d'utilisateur</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" class="btn btn-success" value="Créer" />
+    {{ form_end(form) }}
+
+</br>
+<p><a href="{{ path('users_index') }}" class="btn btn-default">Retour à la liste</a></p>
+
+{% endblock %}

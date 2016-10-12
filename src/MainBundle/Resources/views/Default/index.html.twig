@@ -1,0 +1,13 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block title %}Accueil — {{ parent() }}{% endblock %}
+
+	{% block body %}
+
+		
+		<div class="container text-center">
+			<p><a href="{{ path('users_index') }}">Accéder à la liste des utilisateurs</a></p>
+			<p><a href="{{ path('groups_index') }}">Accéder à la liste des groupes</a></p>
+		</div>
+
+	{% endblock %}

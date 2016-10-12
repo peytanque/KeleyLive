@@ -1,0 +1,43 @@
+{% extends "MainBundle::layout.html.twig" %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    <table  class="table table-hover">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Actif</th>
+                <td>{% if user.actif %}Oui{% else %}Non{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date de création</th>
+                <td>{% if user.dateCreation %}{{ user.dateCreation|date('d/m/Y') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Groupe</th>
+                <td>{% if user.groupe %}{{ user.groupe.nom }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+            <p><a href="{{ path('users_index') }}" class="btn btn-default" >Retour à la liste</a></p>
+
+            <p><a href="{{ path('users_edit', { 'id': user.id }) }}" class="btn btn-warning" >Modifier</a></p>
+
+            <p>{{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger" >
+            {{ form_end(delete_form) }}</p>
+
+{% endblock %}

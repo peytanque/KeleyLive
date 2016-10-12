@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}KELEY live - Test Romain DURAND{% endblock %}</title>
+	{# ---------------------------------------- CSS PERSO -------------------------------------- #}
+	<link 	rel="stylesheet" 		href 	=	"{{ asset('bundles/Test/custom/css/style.css') }}">
+	{# ---------------------------------------- BOOTSTRAP -------------------------------------- #}
+	<link 	rel="stylesheet" 		href 	=	"{{ asset('bundles/Test/bootstrap/dist/css/bootstrap.css') }}" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script 						src 	=	"{{ asset('bundles/Test/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	{# ---------------------------------------- FONT -------------------------------------- #}
+	<link 	rel="stylesheet" 		href 	=	"{{ asset('bundles/Test/fontawesome/css/font-awesome.css') }}" type="text/css" media="screen"/>
+</head>
+
+<body>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h2><a href="{{ path('index') }}">KELEY live</a></h2>
+			<p>Test Romain DURAND</p>
+		</div>
+	</div>
+
+	<div class="container">
+	{% block body %}
+
+	{% endblock %}
+	</div>
+</body>
+
+</html>
